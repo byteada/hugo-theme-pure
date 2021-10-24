@@ -26,13 +26,13 @@
           {{- range .Site.Menus.main -}}
             {{- $lowerItemName := lower .Name}}
             <li class="menu-item menu-item-{{- $lowerItemName}}">
-                <a href="{{- .URL | safeURL }}">
+                <a href="{{- .URL | safeURL | absLangURL }}">
                   {{- with $icon.enable }}
-                  {{- range $name,$value := $icon}}
-                    {{- if eq $name $lowerItemName }}
-                    <i class="icon {{- print " " $value }}"></i>
-                    {{- end}}
-                  {{- end }}
+                    {{- range $name,$value := $icon}}
+                      {{- if eq $name $lowerItemName }}
+                      <i class="icon {{- print " " $value }}"></i>
+                      {{- end}}
+                    {{- end }}
                   {{- end}}
                   <span class="menu-title">{{- .Title  }}</span>
                 </a>
